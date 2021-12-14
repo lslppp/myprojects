@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<style>
+		table{
+			widows: 800px;
+			margin: 100px auto;
+			text-align: center;
+			border-collapse: collapse;
+			font-size: 14px;
+		}
+		thead tr{
+			height: 30px;
+			background-color: skyblue;
+		}
+		tbody tr{
+			height: 30px;
+		}
+		tbody td{
+			border-bottom: 1px solid #d7d7d7;
+			font-size: 12px;
+			color: blue;
+		}
+		.bg{
+			background-color: green;
+		}
+
+	</style>
+</head>
+<body>
+	<table>
+		<thead>
+			<tr>
+				<th><input type="checkbox" id = "allchoice"></th>
+				<th>商品</th>
+				<th>价格</th>
+			</tr>
+		</thead>
+		<tbody id ="choices">
+			<tr>
+				<td><input type="checkbox"></td>
+				<td>iphone 13</td>
+				<td>12000</td>
+			</tr>
+			<tr>
+				<td><input type="checkbox"></td>
+				<td>iphone 13</td>
+				<td>12000</td>
+			</tr>
+			<tr>
+				<td><input type="checkbox"></td>
+				<td>iphone 13</td>
+				<td>12000</td>
+			</tr>
+			<tr>
+			    <td><input type="checkbox"></td>
+				<td>iphone 13</td>
+				<td>12000</td>
+			</tr>
+			<tr>
+		     	<td><input type="checkbox"></td>
+				<td>iphone 13</td>
+				<td>12000</td>
+			</tr>
+		</tbody>
+	</table>
+
+
+	<script>
+		//全选按钮
+		var allchoice = document.getElementById('allchoice');
+		// 下面的所有复选框
+		var choices = document.getElementById('choices').getElementsByTagName('input');
+        //全选后，子项被全部选中。
+		allchoice.onclick = function(){
+			for(var i = 0;i < choices.length;i++){
+				/*this.checked可得到当前复选框的选中状态，若是TRUE,则选中，若是false ,则未选中*/
+				choices[i].checked = this.checked;
+			}
+		}
+		for (var i = choices.length - 1; i >= 0; i--) {
+			choices[i].onclick = function(){
+				var flag = true;
+				for (var i = 0; i < choices.length; i++) {
+					if(!choices[i].checked){
+						flag = false;
+						break;
+					}
+				}
+				allchoice.checked = flag;
+			}
+		}
+
+	</script>
+	
+</body>
+</html>
