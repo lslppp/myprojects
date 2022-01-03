@@ -1,0 +1,54 @@
+1、流式布局
+2、单独制作页面
+
+1>外边距合并问题：
+给父亲添加overflow:hidden;
+2>垂直居中设置：
+line-height: 44px;
+3>图片背景图片缩放
+background: url(../images/jd.png) no-repeat;
+background-size: 20px 15px;
+4>定位
+“父绝子相”
+5>添加伪类样式，默认是在父级内，所以需要定位
+.jd-icon::after{
+	content: "";
+	position: absolute;
+	right: -8px;
+	top: 0;
+	display: block;
+	width: 1px;
+	height: 15px;
+	background-color: #ccc;
+}
+6>二倍精灵图做法
+在firework里面将精灵图等比例缩放为原来的一半
+之后依据盒子大小测量坐标
+注意代码里面background-size也要写：精灵图原来宽度的一半。
+
+7>去除图片里面默认的空白空隙。
+img{
+	vertical-align: top;
+}
+8>
+dpg图片压缩技术，京东开发，基于webp；
+webp图片格式，谷歌开发。
+
+9>连接跳转文字没有下划线
+text-decoration: none;
+
+10>c3盒子模型
+box-sizing: border-box;
+
+11>从第2个盒子开始往后
+.news a:nth-child(n+2)
+
+12>清除浮动
+.clearfix:after {
+    content: "";
+    display: block;
+    line-height: 0;
+    visibility: hidden;
+    height: 0;
+    clear: both;
+}

@@ -1,0 +1,15 @@
+ $(function(){
+ 	//全选按钮（checkall）的状态赋值给三个小按钮(j-checkbox)就可以了，事件使用change.
+ 	$(".checkall").change(function(){
+ 		$(".j-checkbox,.checkall").prop("checked",$(this).prop("checked"));
+ 	});
+ 	//若小复选框全被选中，则将全选框也选中，否则全选框不选中。
+ 	$(".j-checkbox").change(function(){
+ 		if($(".j-checkbox:checked").length==$(".j-checkbox").length){
+ 			$(".checkall").prop("checked",true);	
+ 		}
+ 		else{
+ 			$(".checkall").prop("checked",false);
+ 		}
+ 	});
+ })
